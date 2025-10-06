@@ -1,8 +1,4 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import ConsultasCivilesPage from './components/ConsultasCivilesPage';
-import ConsultaCedulaPage from './components/ConsultaCedulaPage';
-import ConsultaNombrePage from './components/ConsultaNombrePage';
 import { 
   User, 
   FileText, 
@@ -71,7 +67,7 @@ function App() {
       icon: <Search size={24} />,
       title: "Consultas Civiles",
       description: "Verificación de estado civil y datos personales.",
-      to: "/consultas-civiles",
+      href: "/consultas-civiles",
       isRoute: true
     },
     {
@@ -144,142 +140,145 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <main id="main-content" className="main">
-              {/* Hero Section */}
-              <section className="hero">
-                <div className="container">
-                  <div className="hero__content">
-                    <div className="hero__text">
-                      <h1 className="hero__title">
-                        Tribunal Supremo de Elecciones
-                        <span className="hero__subtitle">República de Costa Rica</span>
-                      </h1>
-                      <p className="hero__description">
-                        Institución constitucional autónoma encargada de organizar, dirigir y vigilar 
-                        los actos relativos al sufragio, garantizando el ejercicio efectivo de los 
-                        derechos políticos de la ciudadanía costarricense.
-                      </p>
-                      <div className="hero__actions">
-                        <a href="#servicios" className="btn btn-primary btn-hero">
-                          Explorar Servicios
-                        </a>
-                      </div>
-                    </div>
-                    <div className="hero__visual">
-                      <div className="hero__emblem">
-                        <div className="hero__emblem-inner">
-                          <img 
-                              src="https://www.tse.go.cr/imgs/iconos/logo-TSE.svg" 
-                            alt="Logo de las Elecciones Nacionales 2026 de Costa Rica" 
-                            className="hero__emblem-logo"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'block';
-                            }}
-                          />
-                          <div className="hero__emblem-fallback" style={{display: 'none'}}>
-                            TSE
-                          </div>
-                        </div>
-                        <div className="hero__emblem-rings">
-                          <div className="hero__ring hero__ring--1"></div>
-                          <div className="hero__ring hero__ring--2"></div>
-                          <div className="hero__ring hero__ring--3"></div>
-                        </div>
-                      </div>
+      
+      <main id="main-content" className="main">
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="container">
+            <div className="hero__content">
+              <div className="hero__text">
+                <h1 className="hero__title">
+                  Tribunal Supremo de Elecciones
+                  <span className="hero__subtitle">República de Costa Rica</span>
+                </h1>
+                <p className="hero__description">
+                  Institución constitucional autónoma encargada de organizar, dirigir y vigilar 
+                  los actos relativos al sufragio, garantizando el ejercicio efectivo de los 
+                  derechos políticos de la ciudadanía costarricense.
+                </p>
+                <div className="hero__actions">
+                  <a href="#servicios" className="btn btn-primary btn-hero">
+                    Explorar Servicios
+                  </a>
+                </div>
+              </div>
+              
+              <div className="hero__visual">
+                <div className="hero__emblem">
+                  <div className="hero__emblem-inner">
+                    <img 
+                        src={logoNacionales2026} 
+                      alt="Logo de las Elecciones Nacionales 2026 de Costa Rica" 
+                      className="hero__emblem-logo"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'block';
+                      }}
+                    />
+                    <div className="hero__emblem-fallback" style={{display: 'none'}}>
+                      TSE
                     </div>
                   </div>
-                </div>
-              </section>
-              {/* Servicios más visitados */}
-              <section className="quick-services" aria-labelledby="quick-services-title">
-                <div className="container">
-                  <div className="section-header">
-                    <h2 id="quick-services-title" className="section-title">
-                      Servicios Más Utilizados
-                    </h2>
-                    <p className="section-description">
-                      Accesos rápidos a los servicios más consultados por la ciudadanía
-                    </p>
-                  </div>
-                  <div className="quick-services__grid">
-                    {quickServices.map((service, index) => (
-                      <ServiceCard 
-                        key={index} 
-                        {...service} 
-                        className="service-card--compact"
-                      />
-                    ))}
+                  <div className="hero__emblem-rings">
+                    <div className="hero__ring hero__ring--1"></div>
+                    <div className="hero__ring hero__ring--2"></div>
+                    <div className="hero__ring hero__ring--3"></div>
                   </div>
                 </div>
-              </section>
-              {/* Servicios principales */}
-              <section id="servicios" className="main-services" aria-labelledby="main-services-title">
-                <div className="container">
-                  <div className="section-header">
-                    <h2 id="main-services-title" className="section-title">
-                      Servicios Institucionales
-                    </h2>
-                    <p className="section-description">
-                      Explore todos los servicios que el TSE pone a disposición de la ciudadanía
-                    </p>
-                  </div>
-                  <div className="services-grid">
-                    {mainServices.map((service, index) => (
-                      <ServiceCard key={index} {...service} />
-                    ))}
-                  </div>
-                </div>
-              </section>
-              {/* Secciones destacadas */}
-              <section className="highlighted-sections" aria-labelledby="highlighted-title">
-                <div className="container">
-                  <div className="section-header">
-                    <h2 id="highlighted-title" className="section-title">
-                      Secciones Destacadas
-                    </h2>
-                  </div>
-                  <div className="highlighted-grid">
-                    {highlightedSections.map((section, index) => (
-                      <ServiceCard key={index} {...section} />
-                    ))}
-                  </div>
-                </div>
-              </section>
-              {/* Noticias */}
-              <section className="news-section" aria-labelledby="news-title">
-                <div className="container">
-                  <div className="section-header">
-                    <h2 id="news-title" className="section-title">
-                      Noticias Recientes
-                    </h2>
-                    <p className="section-description">
-                      Manténgase informado sobre las últimas actividades y servicios del TSE
-                    </p>
-                  </div>
-                  <div className="news-grid">
-                    {featuredNews.map((news, index) => (
-                      <NewsCard key={index} {...news} />
-                    ))}
-                  </div>
-                  <div className="news-actions">
-                    <a href="#todas-noticias" className="btn btn-outline">
-                      Ver Todas las Noticias
-                    </a>
-                  </div>
-                </div>
-              </section>
-            </main>
-            <Footer />
-          </>
-        } />
-        <Route path="/consultas-civiles" element={<ConsultasCivilesPage />} />
-        <Route path="/consulta-cedula" element={<ConsultaCedulaPage />} />
-        <Route path="/consulta-nombre" element={<ConsultaNombrePage />} />
-      </Routes>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Servicios más visitados */}
+        <section className="quick-services" aria-labelledby="quick-services-title">
+          <div className="container">
+            <div className="section-header">
+              <h2 id="quick-services-title" className="section-title">
+                Servicios Más Utilizados
+              </h2>
+              <p className="section-description">
+                Accesos rápidos a los servicios más consultados por la ciudadanía
+              </p>
+            </div>
+            
+            <div className="quick-services__grid">
+              {quickServices.map((service, index) => (
+                <ServiceCard 
+                  key={index} 
+                  {...service} 
+                  className="service-card--compact"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Servicios principales */}
+        <section id="servicios" className="main-services" aria-labelledby="main-services-title">
+          <div className="container">
+            <div className="section-header">
+              <h2 id="main-services-title" className="section-title">
+                Servicios Institucionales
+              </h2>
+              <p className="section-description">
+                Explore todos los servicios que el TSE pone a disposición de la ciudadanía
+              </p>
+            </div>
+            
+            <div className="services-grid">
+              {mainServices.map((service, index) => (
+                <ServiceCard key={index} {...service} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Secciones destacadas */}
+        <section className="highlighted-sections" aria-labelledby="highlighted-title">
+          <div className="container">
+            <div className="section-header">
+              <h2 id="highlighted-title" className="section-title">
+                Secciones Destacadas
+              </h2>
+            </div>
+            
+            <div className="highlighted-grid">
+              {highlightedSections.map((section, index) => (
+                <ServiceCard key={index} {...section} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Noticias */}
+        <section className="news-section" aria-labelledby="news-title">
+          <div className="container">
+            <div className="section-header">
+              <h2 id="news-title" className="section-title">
+                Noticias Recientes
+              </h2>
+              <p className="section-description">
+                Manténgase informado sobre las últimas actividades y servicios del TSE
+              </p>
+            </div>
+            
+            <div className="news-grid">
+              {featuredNews.map((news, index) => (
+                <NewsCard key={index} {...news} />
+              ))}
+            </div>
+            
+            <div className="news-actions">
+              <a href="#todas-noticias" className="btn btn-outline">
+                Ver Todas las Noticias
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }

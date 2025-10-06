@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import './ServiceCard.css';
 
@@ -19,47 +18,14 @@ const ServiceCard = ({
     className
   ].filter(Boolean).join(' ');
 
-  return (
-    <article className={cardClasses}>
-      {isRoute ? (
-        <Link
-          to={typeof to !== 'undefined' ? to : href}
-          className="service-card__link"
-          aria-describedby={`service-${title.replace(/\s+/g, '-').toLowerCase()}-desc`}
-        >
-          <div className="service-card__content">
-            {icon && <div className="service-card__icon">{icon}</div>}
-            <div className="service-card__info">
-              <h3 className="service-card__title">{title}</h3>
-              <p id={`service-${title.replace(/\s+/g, '-').toLowerCase()}-desc`} className="service-card__desc">{description}</p>
-            </div>
-          </div>
-          <div className="service-card__arrow">
-            <ArrowRight size={18} />
-          </div>
-        </Link>
-      ) : (
-        <a
-          href={href}
-          className="service-card__link"
-          target={isExternal ? '_blank' : '_self'}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          aria-describedby={`service-${title.replace(/\s+/g, '-').toLowerCase()}-desc`}
-        >
-          <div className="service-card__content">
-            {icon && <div className="service-card__icon">{icon}</div>}
-            <div className="service-card__info">
-              <h3 className="service-card__title">{title}</h3>
-              <p id={`service-${title.replace(/\s+/g, '-').toLowerCase()}-desc`} className="service-card__desc">{description}</p>
-            </div>
-          </div>
-          <div className="service-card__arrow">
-            {isExternal ? <ExternalLink size={18} /> : <ArrowRight size={18} />}
-          </div>
-        </a>
-      )}
-    </article>
-  );
+  const handleClick = (e) => {
+    if (isRoute) {
+      e.preventDefault();
+      if (window.navigate) {
+        window.navigate(href);
+      }
+    }
+  };
 
   return (
     <article className={cardClasses}>
