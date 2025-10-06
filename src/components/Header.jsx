@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Search, Globe, User } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -103,7 +104,7 @@ const Header = () => {
           <div className="header__content">
             {/* Logo del TSE */}
             <div className="header__logo">
-              <a href="/Prueba-accesibilidad/" className="header__logo-link" aria-label="Tribunal Supremo de Elecciones - Inicio">
+              <Link to="/" className="header__logo-link" aria-label="Tribunal Supremo de Elecciones - Inicio">
                 <div className="header__logo-container">
                   <div className="header__logo-emblem">
                     <img 
@@ -117,7 +118,7 @@ const Header = () => {
                     <div className="header__logo-subtitle">Costa Rica</div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
 
             {/* Navegación principal - Desktop */}
