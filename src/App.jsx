@@ -14,6 +14,7 @@ import {
   Award
 } from 'lucide-react';
 import Header from './components/Header';
+import logoNacionales2026 from './logo-nacionales-2026.png';
 import ServiceCard from './components/ServiceCard';
 import NewsCard from './components/NewsCard';
 import Footer from './components/Footer';
@@ -166,7 +167,7 @@ function App() {
                 <div className="hero__emblem">
                   <div className="hero__emblem-inner">
                     <img 
-                      src="https://www.tse.go.cr/imgs/iconos/logo-TSE.svg" 
+                        src={logoNacionales2026} 
                       alt="Escudo del Tribunal Supremo de Elecciones" 
                       className="hero__emblem-logo"
                       onError={(e) => {

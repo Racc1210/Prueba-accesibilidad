@@ -17,6 +17,7 @@ function Router() {
   }, []);
 
   const navigate = (path) => {
+    window.scrollTo(0, 0); // Forzar scroll al inicio antes de cambiar la ruta
     window.history.pushState({}, '', path);
     setCurrentPath(path);
   };
