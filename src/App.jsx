@@ -168,7 +168,7 @@ function App() {
                   <div className="hero__emblem-inner">
                     <img 
                         src={logoNacionales2026} 
-                      alt="Escudo del Tribunal Supremo de Elecciones" 
+                      alt="Logo de las Elecciones Nacionales 2026 de Costa Rica" 
                       className="hero__emblem-logo"
                       onError={(e) => {
                         e.target.style.display = 'none';

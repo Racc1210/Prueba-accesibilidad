@@ -53,10 +53,9 @@ const NewsCard = ({
           <div className="news-card__image-wrapper">
             <img 
               src={imageUrl} 
-              alt=""
+              alt={title ? `Imagen de la noticia: ${title}` : "Imagen de noticia"}
               className="news-card__image"
               loading="lazy"
-              role="presentation"
             />
             <div className="news-card__image-overlay"></div>
           </div>
