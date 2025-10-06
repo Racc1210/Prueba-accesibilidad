@@ -12,7 +12,7 @@
 
 .cedula-main {
   flex: 1;
-  padding-top: 120px; /* Compensar header */
+  padding-top: 100px; /* Compensar header */
 }
 
 /* Breadcrumb */
