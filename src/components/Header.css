@@ -1,3 +1,39 @@
+/* Modo oscuro global */
+body.dark-mode {
+  background: #181a1b;
+  color: #e4e6e7;
+}
+
+body.dark-mode .header {
+  background: #23272a;
+  border-bottom-color: #444;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .header__nav-link {
+  color: #e4e6e7;
+}
+
+body.dark-mode .header__nav-link:hover,
+body.dark-mode .header__nav-link:focus {
+  background-color: #2c2f33;
+  color: #ffd700;
+  border-bottom-color: #ffd700;
+}
+
+body.dark-mode .header__dropdown-content {
+  background: #23272a;
+  color: #e4e6e7;
+}
+
+body.dark-mode .header__dropdown-link {
+  color: #e4e6e7;
+}
+
+body.dark-mode .header__dropdown-link:hover {
+  background: #2c2f33;
+  color: #ffd700;
+}
 /* Header Principal - Estilo TSE */
 .header {
   position: fixed;
@@ -98,9 +134,7 @@
 }
 
 /* Navegación principal */
-.header__nav {
-  display: none;
-}
+/* .header__nav display: none solo debe aplicarse en mobile, no en desktop. */
 
 .header__nav-list {
   display: flex;
