@@ -14,7 +14,6 @@ import {
   Award
 } from 'lucide-react';
 import Header from './components/Header';
-import logoNacionales2026 from './tse-logo-alone.png';
 import ServiceCard from './components/ServiceCard';
 import NewsCard from './components/NewsCard';
 import Footer from './components/Footer';
@@ -167,7 +166,7 @@ function App() {
                 <div className="hero__emblem">
                   <div className="hero__emblem-inner">
                     <img 
-                        src={logoNacionales2026} 
+                        src="https://www.tse.go.cr/imgs/iconos/logo-TSE.svg" 
                       alt="Logo de las Elecciones Nacionales 2026 de Costa Rica" 
                       className="hero__emblem-logo"
                       onError={(e) => {
