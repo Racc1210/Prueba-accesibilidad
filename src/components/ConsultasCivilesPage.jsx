@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   ArrowLeft,
   ArrowRight,
@@ -19,10 +19,6 @@ import Footer from './Footer';
 import './ConsultasCivilesPage.css';
 
 function ConsultasCivilesPage() {
-  // Scroll al inicio al montar la página
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   const [selectedCategory, setSelectedCategory] = useState('nacionales');
 
   // Opciones para personas nacionales (con navegación interna)
@@ -77,8 +73,8 @@ function ConsultasCivilesPage() {
       <Header />
       
       <main className="consultas-main">
-        {/* Breadcrumb + Compact Header */}
-        <div className="breadcrumb compact-breadcrumb">
+        {/* Breadcrumb */}
+        <div className="breadcrumb">
           <div className="container">
             <nav className="breadcrumb-nav" aria-label="Navegación de migas de pan">
               <button 
@@ -93,15 +89,41 @@ function ConsultasCivilesPage() {
             </nav>
           </div>
         </div>
-        <section className="page-header compact-header">
+
+        {/* Header Section */}
+        <section className="page-header">
           <div className="container">
-            <div className="header-content compact-header-content">
-              <h1 className="page-title compact-title">
-                <Search className="page-title-icon" /> Consultas Civiles
-              </h1>
-              <p className="page-description compact-description">
-                Consulte información registral de personas nacionales y extranjeras de forma rápida y segura.
-              </p>
+            <div className="header-content">
+              <div className="header-text">
+                <h1 className="page-title">
+                  <Search className="page-title-icon" />
+                  Consultas Civiles
+                </h1>
+                <p className="page-subtitle">
+                  Sistema de consultas del Registro Civil del Tribunal Supremo de Elecciones
+                </p>
+                <p className="page-description">
+                  Acceda a la información registral de personas nacionales y extranjeras. 
+                  Este servicio permite consultar datos civiles oficiales de manera segura y confiable.
+                </p>
+              </div>
+              
+              <div className="header-visual">
+                <div className="tse-emblem">
+                  <img 
+                    src="https://www.tse.go.cr/imgs/iconos/logo-TSE.svg" 
+                    alt="Escudo del TSE" 
+                    className="emblem-logo"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <div className="emblem-fallback" style={{display: 'none'}}>
+                    TSE
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
